@@ -47,7 +47,14 @@ session_start();
     ?>
 
     <h1 class="adminh1">Welcome Admin!</h1>
+    <div class="container-fluid col-md-6 offset-3">
+        <button type="button" class="btn btn-outline-success">View all Users</button>
+        <button type="button" class="btn btn-outline-success">View Blood Requests</button>
+        <button type="button" class="btn btn-outline-success">Delete a User</button>
 
+    </div>
+
+    
     
 
     <!-- bottomnav -->
