@@ -1,6 +1,7 @@
     
 <?php
 include('connection.php');
+session_start();
 ?>
 
 
@@ -63,6 +64,7 @@ include('connection.php');
         $res=$q->fetchAll(PDO::FETCH_OBJ);
         if($res)
         {
+            $_SESSION['un']=$un;
             header("Location:admin-home.php");
         }
         else

@@ -1,6 +1,7 @@
     
 <?php
 include('connection.php');
+session_start();
 ?>
 
 
@@ -25,7 +26,7 @@ include('connection.php');
 
 <body>
     <!-- topnav -->
-    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
+    <nav class="navbar nav1 navbar-expand-sm bg-danger navbar-dark fixed-top">
         <a class="navbar-brand" href="index.php">My Blood Bank</a>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -36,6 +37,16 @@ include('connection.php');
             </li>
         </ul>
     </nav>
+
+    <?php
+    $un=$_SESSION['un'];
+    if(!$un)
+    {
+        header("Location:admin.php");
+    }
+    ?>
+
+    <h1 class="adminh1">Welcome Admin!</h1>
 
     
 
@@ -49,9 +60,11 @@ include('connection.php');
                 <a class="nav-link" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             </li>
             <li>
-                <a class="nav-link" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                <a class="nav-link" href="#"><i class="fa fa-google-plus" aria-hidden="true">+</i></a>
             </li>
-
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li><a class="nav-link" href="index.php">Logout</a></li>
         </ul>
     </nav>
 
