@@ -20,7 +20,7 @@ include('connection.php');
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>Admin</title>
+    <title>Admin Home</title>
 </head>
 
 <body>
@@ -37,43 +37,7 @@ include('connection.php');
         </ul>
     </nav>
 
-    <!-- form  -->
-    <div class="container-fluid form1 p-4 border border-dark col-md-4 offset-4">
-        <form class="" action="#" method="POST">
-            <div class="form-group">
-                <label for="uname">Enter Username:</label>
-                <input type="text" name="un" class="form-control" placeholder="Username">
-            </div>
-            <div class="form-group">
-                <label for="pwd">Enter Password:</label>
-                <input type="password" name="ps" class="form-control" placeholder="Password" >
-            </div>
-            <button type="submit" name="sub" class="btn btn-outline-danger col-md-3 offset-4">Login</button>
-        </form>
-    </div>
-
-
-    <?php
-    if(isset($_POST['sub']))
-    {
-        $un=$_POST['un'];
-        $ps=$_POST['ps'];
-        $q=$db->prepare("SELECT * FROM admin WHERE uname='$un' AND pass='$ps'");
-        $q->execute();
-        $res=$q->fetchAll(PDO::FETCH_OBJ);
-        if($res)
-        {
-            header("Location:admin-home.php");
-        }
-        else
-        {
-            echo "<script>alert('Incorrect username or password');</script>";
-        }
-    }
-
-    ?>
-
-
+    
 
     <!-- bottomnav -->
     <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-bottom">
