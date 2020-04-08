@@ -54,23 +54,54 @@ include('connection.php');
     </div>
 
     <?php
-        if(isset($_POST['req']))
-        {
-            $nam=$_POST['reqn'];
-            $email=$_POST['reqe'];
-            $bg=$_POST['bgroup'];
-            $q=$db->prepare("INSERT INTO request (r_name,r_email,r_bgroup) VALUES (:nam,:email,:bg)");
-            $q->bindValue('r_name',$nam);
-            $q->bindValue('r_email',$email);
-            $q->bindValue('r_bgroup',$bg);
-            if($q-> execute())
-            {
-                echo "<script>alert('Request successful')</script>";
-            }
-            else{
-                echo "<script>alert('Request unsuccessful')</script>";
-            }
-        }
+
+    $servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "bloodbank";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+if(isset($_POST['req']))
+{
+
+            $reqn=$_POST['reqn'];
+            $reqe=$_POST['reqe'];
+            $bgroup=$_POST['bgroup'];
+
+$sql = "INSERT INTO request (r_name,r_email,r_bgroup) VALUES ('$reqn','$reqe','$bgroup')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+$conn->close();
+}
+
+
+        // if(isset($_POST['req']))
+        // {
+        //     $reqn=$_POST['reqn'];
+        //     $reqe=$_POST['reqe'];
+        //     $bgroup=$_POST['bgroup'];
+        //     $q=$db->prepare("INSERT INTO request (r_name,r_email,r_bgroup) VALUES (:reqn,:reqe,:bgroup)");
+        //     $q->bindValue('r_name',$reqn);
+        //     $q->bindValue('r_email',$reqe);
+        //     $q->bindValue('r_bgroup',$bgroup);
+        //     $q->execute();
+            // if()
+            // {
+            //     echo "<script>alert('Request successful')</script>";
+            // }
+            // else{
+            //     echo "<script>alert('Request unsuccessful')</script>";
+            // }
+            
     ?>
     
 
