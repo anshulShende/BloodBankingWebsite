@@ -33,17 +33,165 @@ include('connection.php');
 
     <h1 class="adminh1">Welcome Admin!</h1><br><br>
     <div class="container-fluid">
-        <button type="button" class="btn btn-outline-success col-sm-2 offset-3">View all Users</button>
-        <button type="button" class="btn btn-outline-success col-sm-2 offset-2">View Blood Requests</button><br><br><br>
-        <button type="button" class="btn btn-outline-success col-sm-2 offset-3">Delete a User</button>
-        <button type="button" class="btn btn-outline-success col-sm-2 offset-2">Check Blood Stock</button>
+        <form action="#" method="POST">
+            <button type="submit" class="btn btn-outline-success col-sm-2 offset-3" name="all">View all Users</button>
+            <button type="submit" class="btn btn-outline-success col-sm-2 offset-2" name="req">View Blood Requests</button><br><br><br>
+            <button type="submit" class="btn btn-outline-success col-sm-2 offset-3" name="don">View Donation Appointments</button>
+            <button type="submit" class="btn btn-outline-success col-sm-2 offset-2" name="bl">Check Blood Stock</button><br><br><br>
+            <button type="submit" class="btn btn-outline-success col-sm-2 offset-3" name="add">Add Blood Stock</button>
+            <button type="submit" class="btn btn-outline-success col-sm-2 offset-2" name="del">Delete a User</button>
+        </form>
     </div>
 
     
+
+
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "bloodbank";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        if(isset($_POST['all']))
+        {
+            $sql = "SELECT * FROM user";
+
+            $res = mysqli_query($conn,$sql);
+
+            echo "<br><br><br> <table border='1' align='center' width='100%' cellpadding='8' bgcolor='wheat'>
+
+                <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Blood Group</th>
+                <th>Email</th>
+                </tr>";
+
+                while($row = mysqli_fetch_assoc($res))
+                {
+
+                    echo "<tr>";
+                    echo "<td>" . $row['nam'] . "</td>";
+                    echo "<td>" . $row['addres'] . "</td>";
+                    echo "<td>" . $row['age'] . "</td>";
+                    echo "<td>" . $row['gender'] . "</td>";
+                    echo "<td>" . $row['bgroup'] . "</td>";
+                    echo "<td>" . $row['email'] . "</td>";
+                    echo "</tr>";
+
+                }
+
+                echo "</table>";
+
+            $conn->close();
+        }
+
+
+        if(isset($_POST['req']))
+        {
+            $sql = "SELECT * FROM request";
+
+            $res = mysqli_query($conn,$sql);
+
+            echo "<br><br><br> <table border='1' align='center' width='100%' cellpadding='8' bgcolor='wheat'>
+
+                <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Blood Group</th>
+                <th>Required till Date</th>
+                </tr>";
+
+                while($row = mysqli_fetch_assoc($res))
+                {
+
+                    echo "<tr>";
+                    echo "<td>" . $row['r_name'] . "</td>";
+                    echo "<td>" . $row['r_email'] . "</td>";
+                    echo "<td>" . $row['r_bgroup'] . "</td>";
+                    echo "<td>" . $row['r_date'] . "</td>";
+                    echo "</tr>";
+
+                }
+
+                echo "</table>";
+
+            $conn->close();
+        }
+
+        if(isset($_POST['don']))
+        {
+            $sql = "SELECT * FROM donate";
+
+            $res = mysqli_query($conn,$sql);
+
+            echo "<br><br><br> <table border='1' align='center' width='60%' cellpadding='8' bgcolor='wheat'>
+
+                <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Donation Date</th>
+                </tr>";
+
+                while($row = mysqli_fetch_assoc($res))
+                {
+
+                    echo "<tr>";
+                    echo "<td>" . $row['d_name'] . "</td>";
+                    echo "<td>" . $row['d_email'] . "</td>";
+                    echo "<td>" . $row['d_date'] . "</td>";
+                    echo "</tr>";
+
+                }
+
+                echo "</table>";
+
+            $conn->close();
+        }
+
+
+         if(isset($_POST['bl']))
+        {
+            $sql = "SELECT * FROM blood";
+
+            $res = mysqli_query($conn,$sql);
+
+            echo "<br><br><br> <table border='1' align='center' width='10%' cellpadding='8' bgcolor='wheat'>
+
+                <tr>
+                <th>Blood Group</th>
+                <th>Stocks</th>
+                </tr>";
+
+                while($row = mysqli_fetch_assoc($res))
+                {
+
+                    echo "<tr>";
+                    echo "<td>" . $row['bgroup'] . "</td>";
+                    echo "<td>" . $row['stocks'] . "</td>";
+                    echo "</tr>";
+
+                }
+
+                echo "</table>";
+
+            $conn->close();
+        }
+        
+    ?>
     
 
     <!-- bottomnav -->
-    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-bottom">
+    <br><br><br><br><br>
+    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-bottom" >
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="#"> <i class="fa fa-facebook" aria-hidden="true"></i></a>

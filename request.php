@@ -49,6 +49,10 @@ include('connection.php');
                     <option>AB+</option>
                 </select>
             </div>
+            <div class="form-group">
+                <label>Required till Date:</label>
+                <input type="date" name="reqd" class="form-control" placeholder="dd/mm/yy">
+            </div>
             <button type="submit" name="req" class="btn btn-outline-danger col-md-3 offset-4">Request</button>
         </form>
     </div>
@@ -73,8 +77,9 @@ include('connection.php');
         $reqn=$_POST['reqn'];
         $reqe=$_POST['reqe'];
         $bgroup=$_POST['bgroup'];
+        $reqd=$_POST['reqd'];
 
-        $sql = "INSERT INTO request (r_name,r_email,r_bgroup) VALUES ('$reqn','$reqe','$bgroup')";
+        $sql = "INSERT INTO request (r_name,r_email,r_bgroup,r_date) VALUES ('$reqn','$reqe','$bgroup','$reqd')";
 
         if ($conn->query($sql) === TRUE) 
         {
