@@ -93,7 +93,7 @@ if(isset($_POST['signin']))
 $sql = "INSERT INTO user (nam,addres,gender,bgroup,email,usern,pwd) VALUES ('$nam','$add','$gen','$bg','$email','$un','$pwd')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record inserted successfully";
+    echo "Signup successful. Go to users and Login";
     
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

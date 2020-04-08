@@ -49,24 +49,23 @@ session_start();
                 <label for="pwd">Enter Password:</label>
                 <input type="password" name="ps" class="form-control" placeholder="Password" >
             </div>
-            <button type="submit" name="sub" class="btn btn-outline-danger col-md-3 offset-4">Login</button>
+            <button type="submit" name="log" class="btn btn-outline-danger col-md-3 offset-4">Login</button>
         </form>
         <p>New User? <a href="user-registration.php">Register here</a></p>
     </div>
 
 
     <?php
-    if(isset($_POST['sub']))
+    if(isset($_POST['log']))
     {
         $un=$_POST['un'];
         $ps=$_POST['ps'];
-        $q=$db->prepare("SELECT * FROM admin WHERE uname='$un' AND pass='$ps'");
+        $q=$db->prepare("SELECT * FROM user WHERE usern='$un' AND pwd='$ps'");
         $q->execute();
         $res=$q->fetchAll(PDO::FETCH_OBJ);
         if($res)
         {
-            $_SESSION['un']=$un;
-            header("Location:admin-home.php");
+            header("Location:userhome.php");
         }
         else
         {
