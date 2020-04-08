@@ -47,6 +47,10 @@ include('connection.php');
                     <option>A+</option>
                     <option>B+</option>
                     <option>AB+</option>
+                    <option>O-</option>
+                    <option>A-</option>
+                    <option>B-</option>
+                    <option>AB-</option>
                 </select>
             </div>
             <div class="form-group">

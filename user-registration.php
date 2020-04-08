@@ -57,10 +57,14 @@
             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Blood Group</label>
               <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="bg">
                 <option selected>Choose...</option>
-                <option value="O">O+</option>
-                <option value="A">A+</option>
-                <option value="B">B+</option>
-                <option value="AB">AB+</option>
+                <option>O+</option>
+                    <option>A+</option>
+                    <option>B+</option>
+                    <option>AB+</option>
+                    <option>O-</option>
+                    <option>A-</option>
+                    <option>B-</option>
+                    <option>AB-</option>
               </select>
               <button type="submit" class="btn btn-primary" name="signin">Sign in</button>
           </form>

@@ -40,7 +40,7 @@ include('connection.php');
             <button type="submit" class="btn btn-outline-success col-sm-2 offset-2" name="bl">Check Blood Stock</button><br><br><br>
             <button type="submit" class="btn btn-outline-success col-sm-2 offset-3" name="add">Add Blood Stock</button>
             <button type="submit" class="btn btn-outline-success col-sm-2 offset-2" name="del">Delete a User</button>
-        </form>
+        </form><br><br><br>
     </div>
 
     
@@ -64,7 +64,7 @@ include('connection.php');
 
             $res = mysqli_query($conn,$sql);
 
-            echo "<br><br><br> <table border='1' align='center' width='100%' cellpadding='8' bgcolor='wheat'>
+            echo " <table border='1' align='center' width='100%' cellpadding='8' bgcolor='wheat'>
 
                 <tr>
                 <th>Name</th>
@@ -101,7 +101,7 @@ include('connection.php');
 
             $res = mysqli_query($conn,$sql);
 
-            echo "<br><br><br> <table border='1' align='center' width='100%' cellpadding='8' bgcolor='wheat'>
+            echo "<table border='1' align='center' width='100%' cellpadding='8' bgcolor='wheat'>
 
                 <tr>
                 <th>Name</th>
@@ -133,7 +133,7 @@ include('connection.php');
 
             $res = mysqli_query($conn,$sql);
 
-            echo "<br><br><br> <table border='1' align='center' width='60%' cellpadding='8' bgcolor='wheat'>
+            echo " <table border='1' align='center' width='60%' cellpadding='8' bgcolor='wheat'>
 
                 <tr>
                 <th>Name</th>
@@ -164,7 +164,7 @@ include('connection.php');
 
             $res = mysqli_query($conn,$sql);
 
-            echo "<br><br><br> <table border='1' align='center' width='10%' cellpadding='8' bgcolor='wheat'>
+            echo "<table border='1' align='center' width='10%' cellpadding='8' bgcolor='wheat'>
 
                 <tr>
                 <th>Blood Group</th>
@@ -184,6 +184,12 @@ include('connection.php');
                 echo "</table>";
 
             $conn->close();
+        }
+
+        if(isset($_POST['add']))
+        {
+            
+            header("Location:addstocks.php");
         }
         
     ?>
