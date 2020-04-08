@@ -1,5 +1,7 @@
+    
 <?php
 include('connection.php');
+session_start();
 ?>
 
 
@@ -19,7 +21,7 @@ include('connection.php');
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>Admin</title>
+    <title>User Login</title>
 </head>
 
 <body>
@@ -49,6 +51,7 @@ include('connection.php');
             </div>
             <button type="submit" name="sub" class="btn btn-outline-danger col-md-3 offset-4">Login</button>
         </form>
+        <p>New User? <a href="register.php">Register here</a></p>
     </div>
 
 
@@ -62,6 +65,7 @@ include('connection.php');
         $res=$q->fetchAll(PDO::FETCH_OBJ);
         if($res)
         {
+            $_SESSION['un']=$un;
             header("Location:admin-home.php");
         }
         else
