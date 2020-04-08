@@ -1,7 +1,6 @@
     
 <?php
 include('connection.php');
-session_start();
 ?>
 
 
@@ -21,25 +20,24 @@ session_start();
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>User Login</title>
+    <title>User Home</title>
 </head>
 
 <body>
     <!-- topnav -->
-    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
+    <nav class="navbar nav1 navbar-expand-sm bg-danger navbar-dark fixed-top">
         <a class="navbar-brand" href="index.php">My Blood Bank</a>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="admin.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Admin</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">&ensp;<i class="fa fa-users" aria-hidden="true"></i>&nbsp;Users</a>
-            </li>
-        </ul>
     </nav>
 
+   
 
+    <h1 class="adminh1">Welcome!</h1><br><br><br>
+    <div class="container-fluid">
+        <button type="button" class="btn btn-outline-success col-sm-2 offset-3"><a href="donate.php">Book Appointment for Blood Donation</a></button>
+        <button type="button" class="btn btn-outline-success col-sm-2 offset-2"><a href="request.php">Request for Blood</a></button>
+    </div>
 
+    
 
     <!-- bottomnav -->
     <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-bottom">
@@ -53,7 +51,9 @@ session_start();
             <li>
                 <a class="nav-link" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
             </li>
-
+        </ul>
+        <ul class="navbar-nav align-center">
+            <li><a class="nav-link" href="index.php">Logout&nbsp;<i class="fa fa-power-off" aria-hidden="true"></i></a></li>
         </ul>
     </nav>
 

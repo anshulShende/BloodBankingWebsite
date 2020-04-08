@@ -19,7 +19,7 @@
 <body>
 
   <!-- topnav -->
-  <?php include 'nabvar.php';?>
+  <?php include 'navbar.php';?>
 
   <div class="container">
         <div class="alert alert-danger" role="alert">
@@ -51,7 +51,7 @@
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
               <label class="form-check-label" for="inlineRadio2">Female</label>
-            </div>
+            </div><br>
             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Blood Group</label>
               <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                 <option selected>Choose...</option>

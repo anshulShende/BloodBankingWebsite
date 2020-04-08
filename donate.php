@@ -1,7 +1,6 @@
     
 <?php
 include('connection.php');
-session_start();
 ?>
 
 
@@ -21,62 +20,34 @@ session_start();
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>User Login</title>
+    <title>Book Donation Appointment</title>
 </head>
 
 <body>
     <!-- topnav -->
-    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
+    <nav class="navbar nav1 navbar-expand-sm bg-danger navbar-dark fixed-top">
         <a class="navbar-brand" href="index.php">My Blood Bank</a>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="admin.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Admin</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">&ensp;<i class="fa fa-users" aria-hidden="true"></i>&nbsp;Users</a>
-            </li>
-        </ul>
     </nav>
 
-    <!-- form  -->
+   
     <div class="container-fluid form1 p-4 border border-dark col-md-4 offset-4">
         <form class="" action="#" method="POST">
             <div class="form-group">
-                <label for="uname">Enter Username:</label>
-                <input type="text" name="un" class="form-control" placeholder="Username">
+                <label>Enter Name:</label>
+                <input type="text" name="donn" class="form-control" placeholder="Name">
             </div>
             <div class="form-group">
-                <label for="pwd">Enter Password:</label>
-                <input type="password" name="ps" class="form-control" placeholder="Password" >
+                <label>Enter Email:</label>
+                <input type="email" name="done" class="form-control" placeholder="Email">
             </div>
-            <button type="submit" name="sub" class="btn btn-outline-danger col-md-3 offset-4">Login</button>
+            <div class="form-group">
+                <label>Enter Date of Appointment:</label>
+                <input type="text" name="dond" class="form-control" placeholder="dd/mm/yy">
+            </div>
+            <button type="submit" name="don" class="btn btn-outline-danger col-md-3 offset-4">Book</button>
         </form>
-        <p>New User? <a href="user-registration.php">Register here</a></p>
     </div>
-
-
-    <?php
-    if(isset($_POST['sub']))
-    {
-        $un=$_POST['un'];
-        $ps=$_POST['ps'];
-        $q=$db->prepare("SELECT * FROM admin WHERE uname='$un' AND pass='$ps'");
-        $q->execute();
-        $res=$q->fetchAll(PDO::FETCH_OBJ);
-        if($res)
-        {
-            $_SESSION['un']=$un;
-            header("Location:admin-home.php");
-        }
-        else
-        {
-            echo "<script>alert('Incorrect username or password');</script>";
-        }
-    }
-
-    ?>
-
-
+    
 
     <!-- bottomnav -->
     <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-bottom">
@@ -90,7 +61,9 @@ session_start();
             <li>
                 <a class="nav-link" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
             </li>
-
+        </ul>
+        <ul class="navbar-nav align-center">
+            <li><a class="nav-link" href="index.php">Logout&nbsp;<i class="fa fa-power-off" aria-hidden="true"></i></a></li>
         </ul>
     </nav>
 
