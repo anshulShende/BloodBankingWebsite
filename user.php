@@ -1,5 +1,7 @@
+    
 <?php
 include('connection.php');
+session_start();
 ?>
 
 
@@ -19,12 +21,22 @@ include('connection.php');
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>Admin</title>
+    <title>User Login</title>
 </head>
 
 <body>
     <!-- topnav -->
-    <?php include 'navbar.php';?>
+    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
+        <a class="navbar-brand" href="index.php">My Blood Bank</a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Admin</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">&ensp;<i class="fa fa-users" aria-hidden="true"></i>&nbsp;Users</a>
+            </li>
+        </ul>
+    </nav>
 
     <!-- form  -->
     <div class="container-fluid form1 p-4 border border-dark col-md-4 offset-4">
@@ -39,6 +51,7 @@ include('connection.php');
             </div>
             <button type="submit" name="sub" class="btn btn-outline-danger col-md-3 offset-4">Login</button>
         </form>
+        <p>New User? <a href="register.php">Register here</a></p>
     </div>
 
 
@@ -52,6 +65,7 @@ include('connection.php');
         $res=$q->fetchAll(PDO::FETCH_OBJ);
         if($res)
         {
+            $_SESSION['un']=$un;
             header("Location:admin-home.php");
         }
         else
@@ -65,7 +79,20 @@ include('connection.php');
 
 
     <!-- bottomnav -->
-    <?php include 'footer.php';?>
+    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-bottom">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </li>
+            <li>
+                <a class="nav-link" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+            </li>
+
+        </ul>
+    </nav>
 
 </body>
 
