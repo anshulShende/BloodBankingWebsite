@@ -19,22 +19,7 @@
 <body>
 
   <!-- topnav -->
-<<<<<<< HEAD
   <?php include 'navbar.php';?>
-=======
-  <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
-  <a class="navbar-brand" href="index.php">My Blood Bank</a>
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-      <a class="nav-link" href="admin.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Admin</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="user.php">&ensp;<i class="fa fa-users" aria-hidden="true"></i>&nbsp;Users</a>
-    </li>
-  </ul>
-</nav>
->>>>>>> 309cb6be2eb3bc5df69d01bb675049a5e8607559
-
 
 <!-- carousel -->
 <div id="demo" class="carousel slide" data-ride="carousel">
@@ -65,7 +50,6 @@
   </a>
 
 </div>
-
 
 
 <!-- bottomnav -->
