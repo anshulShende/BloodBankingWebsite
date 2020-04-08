@@ -25,35 +25,12 @@ include('connection.php');
 
 <body>
     <!-- topnav -->
-    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
-        <a class="navbar-brand" href="index.php">My Blood Bank</a>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="admin.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Admin</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">&ensp;<i class="fa fa-users" aria-hidden="true"></i>&nbsp;Users</a>
-            </li>
-        </ul>
-    </nav>
+    <?php include 'navbar.php';?>
 
     
 
     <!-- bottomnav -->
-    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-bottom">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#"> <i class="fa fa-facebook" aria-hidden="true"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </li>
-            <li>
-                <a class="nav-link" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-            </li>
-
-        </ul>
-    </nav>
+    <?php include 'footer.php';?>
 
 </body>
 
