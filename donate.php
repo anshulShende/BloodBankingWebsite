@@ -1,4 +1,3 @@
-    
 <?php
 include('connection.php');
 ?>
@@ -42,11 +41,48 @@ include('connection.php');
             </div>
             <div class="form-group">
                 <label>Enter Date of Appointment:</label>
-                <input type="text" name="dond" class="form-control" placeholder="dd/mm/yy">
+                <input type="date" name="dond" class="form-control" placeholder="dd/mm/yy">
             </div>
             <button type="submit" name="don" class="btn btn-outline-danger col-md-3 offset-4">Book</button>
         </form>
     </div>
+
+
+    <?php
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "bloodbank";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) 
+    {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    if(isset($_POST['don']))
+    {
+
+        $donn=$_POST['donn'];
+        $done=$_POST['done'];
+        $dond=$_POST['dond'];
+
+        $sql = "INSERT INTO donate (d_name,d_email,d_date) VALUES ('$donn','$done','$dond')";
+
+        if ($conn->query($sql) === TRUE) 
+        {
+            echo "Appointment Booked";
+        } 
+        else 
+        {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        $conn->close();
+    }
+
+    ?>
     
 
     <!-- bottomnav -->

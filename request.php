@@ -56,32 +56,36 @@ include('connection.php');
     <?php
 
     $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bloodbank";
+    $username = "root";
+    $password = "";
+    $dbname = "bloodbank";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-if(isset($_POST['req']))
-{
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) 
+    {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    if(isset($_POST['req']))
+    {
 
-            $reqn=$_POST['reqn'];
-            $reqe=$_POST['reqe'];
-            $bgroup=$_POST['bgroup'];
+        $reqn=$_POST['reqn'];
+        $reqe=$_POST['reqe'];
+        $bgroup=$_POST['bgroup'];
 
-$sql = "INSERT INTO request (r_name,r_email,r_bgroup) VALUES ('$reqn','$reqe','$bgroup')";
+        $sql = "INSERT INTO request (r_name,r_email,r_bgroup) VALUES ('$reqn','$reqe','$bgroup')";
 
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-$conn->close();
-}
+        if ($conn->query($sql) === TRUE) 
+        {
+            echo "Request Successful";
+        } 
+        else 
+        {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+        $conn->close();
+    }
 
 
         // if(isset($_POST['req']))
