@@ -36,6 +36,7 @@ include('connection.php');
 
     <div class="container-fluid form1 p-4 border border-dark col-md-2 offset-5">
             <form class='' action='#' method='POST'>
+                <div class="offset-1"><h2>Delete User</h2></div><br>
                 <div class='form-group'>
                    <label>Enter id of user to delete:</label>
                     <input type='number' name='id' class='form-control' placeholder='Enter id'>

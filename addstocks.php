@@ -33,6 +33,7 @@
 
     <div class="container-fluid form1 p-4 border border-dark col-md-2 offset-5">
             <form class='' action='#' method='POST'>
+                <div class="offset-1"><h2>Add Stocks</h2></div><br>
                 <div class='form-group'>
                     <label>Select Blood Group: </label>
                     <select name='bgroup'>
