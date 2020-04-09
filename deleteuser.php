@@ -1,3 +1,6 @@
+<?php
+include('connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +17,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <title>Request for Blood</title>
+    <title>Delete User</title>
 </head>
 
 <body>
@@ -28,23 +31,10 @@
     <div class="container-fluid form1 p-4 border border-dark col-md-2 offset-5">
             <form class='' action='#' method='POST'>
                 <div class='form-group'>
-                    <label>Select Blood Group: </label>
-                    <select name='bgroup'>
-                        <option>O+</option>
-                        <option>A+</option>
-                        <option>B+</option>
-                        <option>AB+</option>
-                        <option>O-</option>
-                        <option>A-</option>
-                        <option>B-</option>
-                        <option>AB-</option>
-                    </select>
+                   <label>Enter id of user to delete:</label>
+                    <input type='number' name='id' class='form-control' placeholder='Enter id'>
                 </div>
-                <div class='form-group '>
-                    <label>Number of Stocks to add:</label>
-                    <input type='number' name='stock' class='form-control' placeholder='Stocks'>
-                </div>
-                <button type='submit' name='add1' class='btn btn-outline-danger col-md-3 offset-4'>Add</button>
+                <button type='submit' name='dele' class='btn btn-outline-danger col-md-4 offset-4'>Delete</button>
             </form></div>
 
            <?php
@@ -59,23 +49,35 @@
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                if(isset($_POST['add1']))
+                if(isset($_POST['dele']))
                 {
-                    $bg = $_POST['bgroup'];
-                    $no = $_POST['stock'];
+                        $id = $_POST['id'];
+                        
+                        $q=$db->prepare("SELECT * FROM user WHERE id='$id'");
+                        $q->execute();
+                        $res=$q->fetchAll(PDO::FETCH_OBJ);
+                        if($res)
+                        {
+                            echo "<script>confirm('Are you sure you want to delete?')</script>";
 
-                    $sql = "UPDATE blood SET stocks=stocks+'$no' WHERE bgroup='$bg' ";
+                            $sql = "DELETE FROM user WHERE id='$id' ";
 
-                    if ($conn->query($sql) === TRUE) 
-                    {
-                        echo "Stocks added successfully";
-                    } 
-                    else 
-                    {
-                        echo "Error updating record: " . $conn->error;
-                    }
+                            if ($conn->query($sql) === TRUE) 
+                            {
+                                echo "User Deleted";
+                            } 
+                            else 
+                            {
+                                echo "Error deleting record: " . $conn->error;
+                            }
+                            
+                        }
+                        else
+                        {
+                            echo "<script>alert('No such user');</script>";
+                        }
 
-                    $conn->close();
+                        $conn->close();
                 }
             ?>
 

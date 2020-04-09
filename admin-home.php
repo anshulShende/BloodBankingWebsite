@@ -67,6 +67,7 @@ include('connection.php');
             echo " <table border='1' align='center' width='100%' cellpadding='8' bgcolor='wheat'>
 
                 <tr>
+                <th>Id</th>
                 <th>Name</th>
                 <th>Address</th>
                 <th>Age</th>
@@ -79,6 +80,7 @@ include('connection.php');
                 {
 
                     echo "<tr>";
+                    echo "<td>" . $row['id'] . "</td>";
                     echo "<td>" . $row['nam'] . "</td>";
                     echo "<td>" . $row['addres'] . "</td>";
                     echo "<td>" . $row['age'] . "</td>";
@@ -190,6 +192,12 @@ include('connection.php');
         {
             
             header("Location:addstocks.php");
+        }
+
+        if(isset($_POST['del']))
+        {
+            
+            header("Location:deleteuser.php");
         }
         
     ?>
