@@ -1,9 +1,3 @@
-    
-<?php
-include('connection.php');
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,37 +19,25 @@ include('connection.php');
 
 <body>
     <!-- topnav -->
-    <nav class="navbar nav1 navbar-expand-sm bg-danger navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
         <a class="navbar-brand" href="index.php">My Blood Bank</a>
-    </nav>
+        <ul class="navbar-nav ml-auto">
+             <li><a class="nav-link" href="userlogin.php">Logout&nbsp;<i class="fa fa-power-off" aria-hidden="true"></i></a></li>
+        </ul>
+        </nav>
 
    
-
+    <br><br><br>
     <h1 class="adminh1">Welcome!</h1><br><br><br>
     <div class="container-fluid">
         <button type="button" class="btn btn-outline-success col-sm-2 offset-3"><a href="donate.php">Book Appointment for Blood Donation</a></button>
         <button type="button" class="btn btn-outline-success col-sm-2 offset-2"><a href="request.php">Request for Blood</a></button>
     </div>
-
     
 
+    
     <!-- bottomnav -->
-    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-bottom">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#"> <i class="fa fa-facebook" aria-hidden="true"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </li>
-            <li>
-                <a class="nav-link" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-            </li>
-        </ul>
-        <ul class="navbar-nav align-center">
-            <li><a class="nav-link" href="index.php">Logout&nbsp;<i class="fa fa-power-off" aria-hidden="true"></i></a></li>
-        </ul>
-    </nav>
+    <?php include 'footer.php';?>
 
 </body>
 

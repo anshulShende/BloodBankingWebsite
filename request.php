@@ -25,9 +25,15 @@ include('connection.php');
 
 <body>
     <!-- topnav -->
-    <nav class="navbar nav1 navbar-expand-sm bg-danger navbar-dark fixed-top">
-        <a class="navbar-brand" href="index.php">My Blood Bank</a>
-    </nav>
+    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
+  <a class="navbar-brand" href="index.php">My Blood Bank</a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="userhome.php"><i class="fas fa-arrow-left"></i></i>&nbsp; Back</a>
+    </li>
+     <li><a class="nav-link" href="userlogin.php">Logout&nbsp;<i class="fa fa-power-off" aria-hidden="true"></i></a></li>
+  </ul>
+</nav>
 
     <!-- form -->
     <div class="container-fluid form1 p-4 border border-dark col-md-4 offset-4">
@@ -87,7 +93,7 @@ include('connection.php');
 
         if ($conn->query($sql) === TRUE) 
         {
-            echo "Request Successful";
+            echo "<p><center><h2>Request Successful</h2></center></p>";
         } 
         else 
         {
@@ -119,23 +125,7 @@ include('connection.php');
     
 
     <!-- bottomnav -->
-    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-bottom">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#"> <i class="fa fa-facebook" aria-hidden="true"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </li>
-            <li>
-                <a class="nav-link" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-            </li>
-        </ul>
-        <ul class="navbar-nav align-center">
-            <li><a class="nav-link" href="index.php">Logout&nbsp;<i class="fa fa-power-off" aria-hidden="true"></i></a></li>
-        </ul>
-    </nav>
-
+<?php include 'footer.php';?>
 </body>
 
 </html>

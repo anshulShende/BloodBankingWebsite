@@ -32,13 +32,13 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="image/b1.jpg" alt="Los Angeles">
+      <img src="image/b3.jpg" alt="Bloog Groups">
     </div>
     <div class="carousel-item">
-      <img src="image/b2.png" alt="Chicago">
+      <img src="image/b2.png" alt="Blood Donation">
     </div>
     <div class="carousel-item">
-      <img src="image/b3.jpg" alt="New York">
+      <img src="image/b1.jpg" alt="Doctors">
     </div>
   </div>
 

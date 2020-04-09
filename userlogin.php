@@ -1,10 +1,7 @@
-    
 <?php
 include('connection.php');
 session_start();
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,21 +23,13 @@ session_start();
 
 <body>
     <!-- topnav -->
-    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
-        <a class="navbar-brand" href="index.php">My Blood Bank</a>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="admin.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Admin</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="userlogin.php">&ensp;<i class="fa fa-users" aria-hidden="true"></i>&nbsp;Users</a>
-            </li>
-        </ul>
-    </nav>
+  <?php include 'navbar.php';?>
 
     <!-- form  -->
+    
     <div class="container-fluid form1 p-4 border border-dark col-md-4 offset-4">
         <form class="" action="#" method="POST">
+            <div class="col-md-6 offset-3"><h2>User Login</h2></div>
             <div class="form-group">
                 <label for="uname">Enter Username:</label>
                 <input type="text" name="un" class="form-control" placeholder="Username">
@@ -50,7 +39,7 @@ session_start();
                 <input type="password" name="ps" class="form-control" placeholder="Password" >
             </div>
             <button type="submit" name="log" class="btn btn-outline-danger col-md-3 offset-4">Login</button>
-        </form>
+        </form><br>
         <p>New User? <a href="user-registration.php">Register here</a></p>
     </div>
 
@@ -78,20 +67,7 @@ session_start();
 
 
     <!-- bottomnav -->
-    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-bottom">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#"> <i class="fa fa-facebook" aria-hidden="true"></i></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </li>
-            <li>
-                <a class="nav-link" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-            </li>
-
-        </ul>
-    </nav>
+<?php include 'footer.php';?>
 
 </body>
 

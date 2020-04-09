@@ -29,6 +29,7 @@ include('connection.php');
     <!-- form  -->
     <div class="container-fluid form1 p-4 border border-dark col-md-4 offset-4">
         <form class="" action="#" method="POST">
+            <div class="col-md-6 offset-3"><h2>Admin Login</h2></div>
             <div class="form-group">
                 <label for="uname">Enter Username:</label>
                 <input type="text" name="un" class="form-control" placeholder="Username">

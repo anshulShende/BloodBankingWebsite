@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blood Bank</title>
+  <title>User Registration</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,12 +20,13 @@
 
   <!-- topnav -->
   <?php include 'navbar.php';?>
-
-  <div class="container">
-        <div class="alert alert-danger" role="alert">
-            User-Registration
+<div class="alert" role="alert">
+            <br><br>
           </div>
+  <div class="container p-4 border border-dark">
+
           <form action="#" method="POST">
+            <div class="col-md-4 offset-4"><h2>User Registration</h2></div>
             <div class="row">
               <div class="col">
                 <label for="name">Name </label>
@@ -43,7 +44,7 @@
               <input type="password" class="form-control" name="pwd" placeholder="Password">
             </div>
             <div class="form-group">
-              <label for="inputAddress2">Address 2</label>
+              <label for="inputAddress2">Address</label>
               <input type="text" class="form-control" name="inputAddress" placeholder="Address">
             </div>
             <div class="form-check form-check-inline">
@@ -53,6 +54,10 @@
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
               <label class="form-check-label" for="inlineRadio2">Female</label>
+            </div> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            <div class="form-check form-check-inline">
+                <label for="">Age </label>&ensp;
+                <input type="number" class="form-control" name="age" placeholder="">
             </div><br>
             <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Blood Group</label>
               <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="bg">
@@ -93,11 +98,12 @@ if(isset($_POST['signin']))
             $email=$_POST['email'];
             $un=$_POST['uname'];
             $pwd=$_POST['pwd'];
+            $age=$_POST['age'];
 
-$sql = "INSERT INTO user (nam,addres,gender,bgroup,email,usern,pwd) VALUES ('$nam','$add','$gen','$bg','$email','$un','$pwd')";
+$sql = "INSERT INTO user (nam,addres,age,gender,bgroup,email,usern,pwd) VALUES ('$nam','$add','$age','$gen','$bg','$email','$un','$pwd')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Signup successful. Go to users and Login";
+    echo "<p><center><h2>Signup successful. Go to users and Login</h2></center</p>";
     
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
