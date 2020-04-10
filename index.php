@@ -19,7 +19,7 @@
   
 
 </head>
-<body>
+<body style="background-image: url('image/bg.jpg');">
 
   <!-- topnav -->
   <?php include 'navbar.php';?>
