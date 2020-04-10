@@ -22,7 +22,7 @@ include('connection.php');
     <title>Admin</title>
 </head>
 
-<body>
+<body style="background-image: url('image/bg.jpg');">
     <!-- topnav -->
     <?php include 'navbar.php';?>
 

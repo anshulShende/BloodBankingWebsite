@@ -43,7 +43,7 @@ session_start();
             </div>
             <button type="submit" name="log" class="btn btn-outline-danger col-md-3 offset-4">Login</button>
         </form><br>
-        <p>New User? <a href="user-registration.php">Register here</a></p>
+        <p>New User? <a href="user-registration.php" style=" color: white;">Register here</a></p>
     </div>
 
 

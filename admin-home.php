@@ -22,26 +22,29 @@ include('connection.php');
     <title>Admin Home</title>
 </head>
 
-<body>
+<body style="background-image: url('image/bg.jpg');">
     <!-- topnav -->
     <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
-        <a class="navbar-brand" href="index.php">My Blood Bank</a>
-        <ul class="navbar-nav ml-auto">
-             <li><a class="nav-link" href="admin.php">Logout&nbsp;<i class="fa fa-power-off" aria-hidden="true"></i></a></li>
-        </ul>
-        </nav>
+  <a class="navbar-brand" href="index.php" style="font-family: 'castellar';">My Bl<i class="fas fa-tint"></i>od Bank</a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <!-- <a class="nav-link" href="userlogin.php">&ensp;<i class="fa fa-users" aria-hidden="true"></i>&nbsp;Users</a> -->
+      <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location='admin.php'">Logout&nbsp;<i class="fa fa-power-off" aria-hidden="true"></i></button>
+    </li>
+  </ul>
+</nav>
 
    
 <br>
     <h1 class="adminh1">Welcome Admin!</h1><br><br>
     <div class="container-fluid">
         <form action="#" method="POST">
-            <button type="submit" class="btn btn-outline-success col-sm-2 offset-3" name="all">View all Users</button>
-            <button type="submit" class="btn btn-outline-success col-sm-2 offset-2" name="req">View Blood Requests</button><br><br><br>
-            <button type="submit" class="btn btn-outline-success col-sm-2 offset-3" name="don">View Donation Appointments</button>
-            <button type="submit" class="btn btn-outline-success col-sm-2 offset-2" name="bl">Check Blood Stock</button><br><br><br>
-            <button type="submit" class="btn btn-outline-success col-sm-2 offset-3" name="add">Add Blood Stock</button>
-            <button type="submit" class="btn btn-outline-success col-sm-2 offset-2" name="del">Delete a User</button>
+            <button type="submit" class="btn btn-outline-dark col-sm-2 offset-3" name="all">View all Users</button>
+            <button type="submit" class="btn btn-outline-dark col-sm-2 offset-2" name="req">View Blood Requests</button><br><br><br>
+            <button type="submit" class="btn btn-outline-dark col-sm-2 offset-3" name="don">View Donation Appointments</button>
+            <button type="submit" class="btn btn-outline-dark col-sm-2 offset-2" name="bl">Check Blood Stock</button><br><br><br>
+            <button type="submit" class="btn btn-outline-dark col-sm-2 offset-3" name="add">Add Blood Stock</button>
+            <button type="submit" class="btn btn-outline-dark col-sm-2 offset-2" name="del">Delete a User</button>
         </form><br><br><br>
     </div>
 

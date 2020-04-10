@@ -1,16 +1,21 @@
-body{
-	background-image: url('image/bg.jpg');
-}
-nav{
+snav{
 	font-size: 20px;
 }
 .navbar-brand{
 	font-size: x-large;
 }
+.carousel{
+padding: 30px;
+width: 50%;
+height: 50%;
+}
+.carousel-inner, .carousel-inner > .carousel-item{
+padding: 30px;
+}
 .carousel-inner > .carousel-item > img{
-padding: 100px;
-width: 100%;
-height: 700px;
+ height: 400px;
+ width: 600px;
+  top: 0; left: 0; bottom: 0; right: 0;
 }
 .form1{
 	margin-top: 100px;
