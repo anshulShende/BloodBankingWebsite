@@ -38,18 +38,18 @@
             <div class="row">
               <div class="col">
                 <label for="name">Name </label>
-                <input type="text" class="form-control" name="nm" placeholder="Name">
+                <input type="text" class="form-control" name="nm" placeholder="Name" required>
               </div>
               <div class="col">
                 <label for="email">Email </label>
-                <input type="email" class="form-control" name="email" placeholder="Email">
+                <input type="email" class="form-control" name="email" placeholder="Email" required>
               </div>
             </div>
             <div class="form-group">
               <label for="username">UserName </label>
-              <input type="text" class="form-control" name="uname" placeholder="Username">
+              <input type="text" class="form-control" name="uname" placeholder="Username" required>
               <label for="username">Password </label>
-              <input type="password" class="form-control" name="pwd" placeholder="Password">
+              <input type="password" class="form-control" name="pwd" placeholder="Password" required>
             </div>
             <div class="form-group">
               <label for="inputAddress2">Address</label>
@@ -58,8 +58,7 @@
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male">
               <label class="form-check-label" for="inlineRadio1">Male</label>
-            </div>
-            <div class="form-check form-check-inline">
+            &emsp;
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female">
               <label class="form-check-label" for="inlineRadio2">Female</label>
             </div> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
@@ -67,9 +66,9 @@
                 <label for="">Age </label>&ensp;
                 <input type="number" class="form-control" name="age" placeholder="">
             </div><br>
-            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Blood Group</label>
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref" required>Blood Group</label>
               <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="bg">
-                <option selected>Choose...</option>
+                
                 <option>O+</option>
                     <option>A+</option>
                     <option>B+</option>
@@ -86,18 +85,18 @@
 <?php
 
     $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bloodbank";
+      $username = "root";
+      $password = "";
+      $dbname = "bloodbank";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-if(isset($_POST['signin']))
-{
+      // Create connection
+      $conn = new mysqli($servername, $username, $password, $dbname);
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+      if(isset($_POST['signin']))
+      {
 
             $nam=$_POST['nm'];
             $add=$_POST['inputAddress'];
@@ -108,17 +107,20 @@ if(isset($_POST['signin']))
             $pwd=$_POST['pwd'];
             $age=$_POST['age'];
 
-$sql = "INSERT INTO user (nam,addres,age,gender,bgroup,email,usern,pwd) VALUES ('$nam','$add','$age','$gen','$bg','$email','$un','$pwd')";
+            
 
-if ($conn->query($sql) === TRUE) {
-    echo "<script>alert('Signup successful. Go to users and Login')</script>";
-    
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-$conn->close();
-}
-?>
+            $sql = "INSERT INTO user (nam,addres,age,gender,bgroup,email,usern,pwd) VALUES ('$nam','$add','$age','$gen','$bg','$email','$un','$pwd')";
+
+            if ($conn->query($sql) === TRUE) {
+              echo "<script>if(confirm('Signup successful. Login now.')){document.location.href='userlogin.php'};</script>";
+              
+                
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+            $conn->close();
+            }
+            ?>
 
 
 <!-- bottomnav -->

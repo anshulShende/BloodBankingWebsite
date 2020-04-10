@@ -21,9 +21,11 @@ session_start();
     <title>User Login</title>
 </head>
 
-<body>
+<body style="background-image: url('image/bg.jpg');">
     <!-- topnav -->
   <?php include 'navbar.php';?>
+  <div class="bg"></div>
+
 
     <!-- form  -->
     
