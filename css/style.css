@@ -1,4 +1,4 @@
-snav{
+nav{
 	font-size: 20px;
 }
 .navbar-brand{
@@ -14,7 +14,7 @@ padding: 30px;
 }
 .carousel-inner > .carousel-item > img{
  height: 400px;
- width: 600px;
+ width: 100%;
   top: 0; left: 0; bottom: 0; right: 0;
 }
 .form1{
