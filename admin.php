@@ -1,8 +1,7 @@
 <?php
+ob_start();
 include('connection.php');
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,6 +43,7 @@ include('connection.php');
 
 
     <?php
+    ob_start();
     if(isset($_POST['sub']))
     {
         $un=$_POST['un'];

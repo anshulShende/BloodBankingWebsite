@@ -1,8 +1,7 @@
 <?php
+ob_start();
 include('connection.php');
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,17 +51,7 @@ include('connection.php');
 
 
     <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "bloodbank";
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+    ob_start();
         if(isset($_POST['all']))
         {
             $sql = "SELECT * FROM user";

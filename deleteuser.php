@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include('connection.php');
 ?>
 <!DOCTYPE html>
@@ -47,17 +48,7 @@ include('connection.php');
             </form></div>
 
            <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "bloodbank";
-
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
+           ob_start();
                 if(isset($_POST['dele']))
                 {
                         $id = $_POST['id'];

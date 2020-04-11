@@ -1,3 +1,7 @@
+<?php
+ob_start();
+include('connection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,23 +56,13 @@
                 </div>
                 <div class='form-group '>
                     <label>Number of Stocks to add:</label>
-                    <input type='number' name='stock' class='form-control' placeholder='Stocks' required>
+                    <input type='number' name='stock' class='form-control' placeholder='Stocks' min="1" required>
                 </div>
                 <button type='submit' name='add1' class='btn btn-outline-light col-md-4 offset-4'>Add</button>
             </form></div>
 
            <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "bloodbank";
-
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
+           ob_start();
                 if(isset($_POST['add1']))
                 {
                     $bg = $_POST['bgroup'];
