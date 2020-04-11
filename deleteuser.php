@@ -19,16 +19,18 @@ include('connection.php');
 
     <title>Delete User</title>
 </head>
-
-<body>
+<body style="background-image: url('image/bg.jpg');">
     <!-- topnav -->
     <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
-  <a class="navbar-brand" href="index.php">My Blood Bank</a>
+  <a class="navbar-brand" href="index.php" style="font-family: 'castellar';">My Bl<i class="fas fa-tint"></i>od Bank</a>
   <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+      <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location='admin-home.php'"><i class="fas fa-arrow-left"></i></i>&nbsp; Back</button>
+    </li>&emsp;
     <li class="nav-item">
-      <a class="nav-link" href="admin-home.php"><i class="fas fa-arrow-left"></i></i>&nbsp; Back</a>
+      <!-- <a class="nav-link" href="userlogin.php">&ensp;<i class="fa fa-users" aria-hidden="true"></i>&nbsp;Users</a> -->
+      <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location='admin.php'">Logout&nbsp;<i class="fa fa-power-off" aria-hidden="true"></i></button>
     </li>
-     <li><a class="nav-link" href="admin.php">Logout&nbsp;<i class="fa fa-power-off" aria-hidden="true"></i></a></li>
   </ul>
 </nav>
 
@@ -39,9 +41,9 @@ include('connection.php');
                 <div class="offset-1"><h2>Delete User</h2></div><br>
                 <div class='form-group'>
                    <label>Enter id of user to delete:</label>
-                    <input type='number' name='id' class='form-control' placeholder='Enter id'>
+                    <input type='number' name='id' class='form-control' placeholder='Enter id' required>
                 </div>
-                <button type='submit' name='dele' class='btn btn-outline-danger col-md-4 offset-4'>Delete</button>
+                <button type='submit' name='dele' class='btn btn-outline-light col-md-4 offset-4'>Delete</button>
             </form></div>
 
            <?php

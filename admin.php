@@ -38,7 +38,7 @@ include('connection.php');
                 <label for="pwd">Enter Password:</label>
                 <input type="password" name="ps" class="form-control" placeholder="Password" >
             </div>
-            <button type="submit" name="sub" class="btn btn-outline-danger col-md-3 offset-4">Login</button>
+            <button type="submit" name="sub" class="btn btn-outline-light col-md-3 offset-4">Login</button>
         </form>
     </div>
 

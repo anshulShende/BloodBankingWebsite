@@ -41,7 +41,7 @@ session_start();
                 <label for="pwd">Enter Password:</label>
                 <input type="password" name="ps" class="form-control" placeholder="Password" >
             </div>
-            <button type="submit" name="log" class="btn btn-outline-danger col-md-3 offset-4">Login</button>
+            <button type="submit" name="log" class="btn btn-outline-light col-md-3 offset-4">Login</button>
         </form><br>
         <p>New User? <a href="user-registration.php" style=" color: white;">Register here</a></p>
     </div>

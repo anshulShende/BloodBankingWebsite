@@ -24,7 +24,7 @@
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
       <!-- <a class="nav-link" href="userlogin.php">&ensp;<i class="fa fa-users" aria-hidden="true"></i>&nbsp;Users</a> -->
-      <button type="button" class="btn btn-outline-light" onclick="window.location='userlogin.php'"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; Users</button>
+      <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location='userlogin.php'"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; Users</button>
     </li>
   </ul>
 </nav>
@@ -88,7 +88,7 @@
               </select>
             </div>
             </div><br>
-              <button type="submit" class="btn btn-primary" name="signin">Sign in</button>
+              <button type="submit" class="btn btn-primary" name="signin">Sign Up</button>
           </form>
     </div>
 

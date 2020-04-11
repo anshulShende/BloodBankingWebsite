@@ -17,21 +17,24 @@
     <title>User Home</title>
 </head>
 
-<body>
+<body style="background-image: url('image/bg.jpg');">
     <!-- topnav -->
-    <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
-        <a class="navbar-brand" href="index.php">My Blood Bank</a>
-        <ul class="navbar-nav ml-auto">
-             <li><a class="nav-link" href="userlogin.php">Logout&nbsp;<i class="fa fa-power-off" aria-hidden="true"></i></a></li>
-        </ul>
-        </nav>
+        <nav class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top">
+  <a class="navbar-brand" href="index.php" style="font-family: 'castellar';">My Bl<i class="fas fa-tint"></i>od Bank</a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <!-- <a class="nav-link" href="userlogin.php">&ensp;<i class="fa fa-users" aria-hidden="true"></i>&nbsp;Users</a> -->
+      <button type="button" class="btn btn-outline-light btn-lg" onclick="window.location='userlogin.php'">Logout&nbsp;<i class="fa fa-power-off" aria-hidden="true"></i></button>
+    </li>
+  </ul>
+</nav>
 
    
     <br><br><br>
     <h1 class="adminh1">Welcome!</h1><br><br><br>
     <div class="container-fluid">
-        <button type="button" class="btn btn-outline-success col-sm-2 offset-3"><a href="donate.php">Book Appointment for Blood Donation</a></button>
-        <button type="button" class="btn btn-outline-success col-sm-2 offset-2"><a href="request.php">Request for Blood</a></button>
+        <button type="button" class="btn btn-light col-sm-2 offset-3" onclick="window.location='donate.php'">Book Appointment for Blood Donation</button>
+        <button type="button" class="btn btn-light col-sm-2 offset-2" onclick="window.location='request.php'">Request for Blood</button>
     </div>
     
 
