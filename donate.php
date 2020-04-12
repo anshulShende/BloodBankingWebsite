@@ -59,6 +59,7 @@ session_start();
 
 
     <?php
+    ob_start();
     $un= $_SESSION["uname"];
     $sql="SELECT * FROM user WHERE usern='$un'";
     $res = mysqli_query($conn, $sql);
