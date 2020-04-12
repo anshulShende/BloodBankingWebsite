@@ -1,6 +1,7 @@
 <?php
 ob_start();
 include('connection.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +41,7 @@ include('connection.php');
     <div class="container-fluid form1 p-4 border border-dark col-md-4 offset-4">
         <form class="" action="#" method="POST">
             <div class="col-md-8 offset-2"><h2>Request for Blood</h2></div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>Enter Name:</label>
                 <input type="text" name="reqn" class="form-control" placeholder="Name">
             </div>
@@ -60,7 +61,7 @@ include('connection.php');
                     <option>B-</option>
                     <option>AB-</option>
                 </select>
-            </div>
+            </div> -->
             <div class="form-group">
                 <label>Required till Date:</label>
                 <input type="date" name="reqd" class="form-control" placeholder="dd/mm/yy" required>
@@ -71,15 +72,24 @@ include('connection.php');
 
     <?php
     ob_start();
+    $un= $_SESSION["uname"];
+    $sql="SELECT * FROM user WHERE usern='$un'";
+    $res = mysqli_query($conn, $sql);
+    while($row = mysqli_fetch_assoc($res))
+    {
+        $name=$row['nam'];
+        $email=$row['email'];
+        $bg=$row['bgroup'];
+    }
     if(isset($_POST['req']))
     {
 
-        $reqn=$_POST['reqn'];
-        $reqe=$_POST['reqe'];
-        $bgroup=$_POST['bgroup'];
+        // $reqn=$_POST['reqn'];
+        // $reqe=$_POST['reqe'];
+        // $bgroup=$_POST['bgroup'];
         $reqd=$_POST['reqd'];
 
-        $sql = "INSERT INTO request (r_name,r_email,r_bgroup,r_date) VALUES ('$reqn','$reqe','$bgroup','$reqd')";
+        $sql = "INSERT INTO request (r_name,r_email,r_bgroup,r_date) VALUES ('$name','$email','$bg','$reqd')";
 
         if ($conn->query($sql) === TRUE) 
         {
@@ -91,27 +101,8 @@ include('connection.php');
         }
         $conn->close();
     }
-
-
-        // if(isset($_POST['req']))
-        // {
-        //     $reqn=$_POST['reqn'];
-        //     $reqe=$_POST['reqe'];
-        //     $bgroup=$_POST['bgroup'];
-        //     $q=$db->prepare("INSERT INTO request (r_name,r_email,r_bgroup) VALUES (:reqn,:reqe,:bgroup)");
-        //     $q->bindValue('r_name',$reqn);
-        //     $q->bindValue('r_email',$reqe);
-        //     $q->bindValue('r_bgroup',$bgroup);
-        //     $q->execute();
-            // if()
-            // {
-            //     echo "<script>alert('Request successful')</script>";
-            // }
-            // else{
-            //     echo "<script>alert('Request unsuccessful')</script>";
-            // }
             
-    ?>
+?>
     
 
     <!-- bottomnav -->

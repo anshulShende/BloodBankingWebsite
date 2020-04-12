@@ -1,6 +1,7 @@
 <?php
 ob_start();
 include('connection.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,15 +40,15 @@ include('connection.php');
    
     <div class="container-fluid form1 p-4 border border-dark col-md-4 offset-4">
         <form class="" action="#" method="POST">
-            <div class="col-md-8 offset-2"><h2>Book Appointment</h2></div>
-            <div class="form-group">
+            <div class="col-md-8 offset-2"><h2>Book Appointment</h2></div><br>
+            <!-- <div class="form-group">
                 <label>Enter Name:</label>
                 <input type="text" name="donn" class="form-control" placeholder="Name">
             </div>
             <div class="form-group">
                 <label>Enter Email:</label>
                 <input type="email" name="done" class="form-control" placeholder="Email">
-            </div>
+            </div> -->
             <div class="form-group">
                 <label>Enter Date of Appointment:</label>
                 <input type="date" name="dond" class="form-control" placeholder="dd/mm/yy" required>
@@ -58,14 +59,22 @@ include('connection.php');
 
 
     <?php
+    $un= $_SESSION["uname"];
+    $sql="SELECT * FROM user WHERE usern='$un'";
+    $res = mysqli_query($conn, $sql);
+    while($row = mysqli_fetch_assoc($res))
+    {
+        $name=$row['nam'];
+        $email=$row['email'];
+    }
     if(isset($_POST['don']))
     {
 
-        $donn=$_POST['donn'];
-        $done=$_POST['done'];
+        // $donn=$_POST['donn'];
+        // $done=$_POST['done'];
         $dond=$_POST['dond'];
 
-        $sql = "INSERT INTO donate (d_name,d_email,d_date) VALUES ('$donn','$done','$dond')";
+        $sql = "INSERT INTO donate (d_name,d_email,d_date) VALUES ('$name','$email','$dond')";
 
         if ($conn->query($sql) === TRUE) 
         {

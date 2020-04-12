@@ -58,7 +58,8 @@ include('connection.php');
               <label for="username">Password: </label>
               <input type="password" class="form-control" name="pwd" placeholder="Password" required>
               </div>  
-            </div><br>
+            </div>
+            <br>
             <div class="form-group">
               <label for="inputAddress2">Address:</label>
               <input type="text" class="form-control" name="inputAddress" placeholder="Address">
@@ -110,20 +111,35 @@ ob_start();
             $pwd=$_POST['pwd'];
             $age=$_POST['age'];
 
+            $sql_u = "SELECT * FROM user WHERE usern='$un'";
+            $sql_e = "SELECT * FROM user WHERE email='$email'";
+            $res_u = mysqli_query($conn, $sql_u);
+            $res_e = mysqli_query($conn, $sql_e);
+
             
+            if (mysqli_num_rows($res_u) > 0) 
+            {
+              echo '<h2><center><font color="white">Username already taken. Try another.</font></center></h2>';
+            }
+            else if(mysqli_num_rows($res_e) > 0)
+            {
+              echo "<h2><center><font color='white'>Email already registered. Try another.</font></center></h2>"; 	
+            }
+            else
+            {
+              $sql = "INSERT INTO user (nam,addres,age,gender,bgroup,email,usern,pwd) VALUES ('$nam','$add','$age','$gen','$bg','$email','$un','$pwd')";
 
-            $sql = "INSERT INTO user (nam,addres,age,gender,bgroup,email,usern,pwd) VALUES ('$nam','$add','$age','$gen','$bg','$email','$un','$pwd')";
-
-            if ($conn->query($sql) === TRUE) {
-              echo "<script>if(confirm('Signup successful. Login now.')){document.location.href='userlogin.php'};</script>";
-              
+              if ($conn->query($sql) === TRUE) {
+                echo "<script>if(confirm('Signup successful. Login now.')){document.location.href='userlogin.php'};</script>";
                 
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                  
+              } else {
+                  echo "Error: " . $sql . "<br>" . $conn->error;
+              }
+              $conn->close();
             }
-            $conn->close();
-            }
-            ?>
+      }
+?>
 
 
 <!-- bottomnav -->

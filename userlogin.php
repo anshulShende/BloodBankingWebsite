@@ -35,11 +35,11 @@ session_start();
             <div class="col-md-6 offset-3"><h2>User Login</h2></div>
             <div class="form-group">
                 <label for="uname">Enter Username:</label>
-                <input type="text" name="un" class="form-control" placeholder="Username">
+                <input type="text" name="un" class="form-control" placeholder="Username" required>
             </div>
             <div class="form-group">
                 <label for="pwd">Enter Password:</label>
-                <input type="password" name="ps" class="form-control" placeholder="Password" >
+                <input type="password" name="ps" class="form-control" placeholder="Password" required>
             </div>
             <button type="submit" name="log" class="btn btn-outline-light col-md-3 offset-4">Login</button>
         </form><br>
@@ -53,6 +53,9 @@ session_start();
     {
         $un=$_POST['un'];
         $ps=$_POST['ps'];
+
+        $_SESSION['uname']=$un;
+
         $q=$db->prepare("SELECT * FROM user WHERE usern='$un' AND pwd='$ps'");
         $q->execute();
         $res=$q->fetchAll(PDO::FETCH_OBJ);

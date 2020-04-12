@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,9 +39,7 @@
         <button type="button" class="btn btn-light col-sm-2 offset-3" onclick="window.location='donate.php'">Book Appointment for Blood Donation</button>
         <button type="button" class="btn btn-light col-sm-2 offset-2" onclick="window.location='request.php'">Request for Blood</button>
     </div>
-    
 
-    
     <!-- bottomnav -->
     <?php include 'footer.php';?>
 

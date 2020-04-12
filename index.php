@@ -15,7 +15,6 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
     integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
   
 
 </head>
@@ -77,7 +76,7 @@
 <div class="row">
   <div class="col">
 <div class="container" id="section1">
-  <div class="card" style="width:400px">
+  <div class="card" style="width:400px;">
     <i class="fas fa-syringe text-center" style="font-size: 50px; color: red;"></i>
     <div class="card-body">
       <h4 class="card-title text-center">Blood Groups</h4>
