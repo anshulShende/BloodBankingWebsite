@@ -70,10 +70,21 @@
 </div>
 </div>
 
-<a href="#section1" class="col-sm-1 offset-5" style="font-size: 20px; color: white; text-decoration: none;"><i class="fas fa-chevron-down"></i>
-  &nbsp;View More</a>
+  <button class="btn btn-link col-sm-2 offset-5" onclick="myFunction()" style="font-size: 20px; color: white; text-decoration: none;"><i class="fas fa-chevron-down"></i>&nbsp;View More</button>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myDIV");
+      if (x.style.display === "none") {
+        x.style.display = "";
+        window.location = "#myDIV";
+      } else {
+        x.style.display = "none";
+        window.location = "index.php";
+      }
+    }
+  </script>
 <br><br><br>
-<div class="row">
+<div class="row" id="myDIV" style="display: none;">
   <div class="col">
 <div class="container" id="section1">
   <div class="card" style="width:400px;">
@@ -117,6 +128,9 @@
       </div>
     </div>
 </div>
+
+
+
 
 <br><br><br>
 <!-- bottomnav -->
